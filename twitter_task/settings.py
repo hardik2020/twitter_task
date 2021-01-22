@@ -25,7 +25,7 @@ SECRET_KEY = '18bj(*!rj)(fxbog$v3$pd1t%^$ecrb@l6ol_flit#!-bjpr0%'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1','https://twitter-seva.herokuapp.com/']
+ALLOWED_HOSTS = ['127.0.0.1','twitterseva.herokuapp.com']
 
 
 # Application definition
