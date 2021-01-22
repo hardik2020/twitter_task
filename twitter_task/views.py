@@ -1,0 +1,76 @@
+from django.contrib.auth import logout,authenticate,login
+from django.shortcuts import render
+from django.urls import reverse
+from django.http import HttpResponseRedirect
+import requests,time
+from selenium import webdriver
+from selenium.common.exceptions import NoSuchElementException
+from selenium.webdriver.common.keys import Keys
+from UploadApp.models import UploadImage
+
+def front(request):
+    if request.method == 'POST':
+        print(request.POST.get('title'))
+        images = request.FILES.getlist('images')
+        print(len(images),len(UploadImage.objects.all()))
+        UploadImage.objects.all().delete()
+        print(len(images), len(UploadImage.objects.all()))
+        for i in range(len(images)):
+            print("here",i)
+            UploadImage.objects.create(pic=images[i],name="i"+str(i+1))
+
+        driver = webdriver.Chrome(r"C:\Users\user\Desktop\twitter_task\twitter_task\Browsers\chromedriver.exe")
+
+        driver.maximize_window()
+
+        driver.get("https://mobile.twitter.com/login")
+        time.sleep(5)
+
+        username = '9896502571'
+        password = 'Hardik@26'
+        desc = '#FridayFitness'
+
+        driver.find_element_by_xpath(
+            '/html/body/div/div/div/div[2]/main/div/div/div[2]/form/div/div[1]/label/div/div[2]/div/input').send_keys(
+            username)
+        time.sleep(3)
+        driver.find_element_by_xpath(
+            '/html/body/div/div/div/div[2]/main/div/div/div[2]/form/div/div[2]/label/div/div[2]/div/input').send_keys(
+            password)
+        time.sleep(3)
+
+        driver.find_element_by_xpath('/html/body/div/div/div/div[2]/main/div/div/div[2]/form/div/div[3]/div').click()
+        time.sleep(5)
+
+        total_posts = len(UploadImage.objects.all())
+        print("Total posts to be made",total_posts)
+        for i in range(total_posts):
+            time.sleep(2)
+            driver.find_element_by_xpath('/html/body/div/div/div/div[2]/header/div/div/div/div[1]/div[3]/a').click()
+            time.sleep(3)
+            driver.find_element_by_xpath(
+                '/html/body/div/div/div/div[1]/div[2]/div/div/div/div/div/div[2]/div[2]/div/div[3]/div/div/div/div[1]/div/div/div/div/div[2]/div[1]/div/div/div/div/div/div/div/div/div/div[1]/div/div/div/div[2]/div/div/div/div').send_keys(
+                desc)
+            time.sleep(3)
+
+            try:
+                btn = driver.find_element_by_xpath('/html/body/div/div/div/div[1]/div[3]/div/div/div[2]/div[2]/div')
+                btn.click()
+            except NoSuchElementException:
+                pass
+
+
+            time.sleep(3)
+            driver.find_element_by_xpath(
+                '/html/body/div/div/div/div[1]/div[2]/div/div/div/div/div/div[2]/div[2]/div/div[3]/div/div/div/div[1]/div/div/div/div/div[2]/div[4]/div/div/div[1]/input').send_keys(
+                'C://Users/user/Desktop/twitter_task/'+str(UploadImage.objects.filter(name='i'+str(i+1))[0].pic))
+            time.sleep(3)
+            driver.find_element_by_xpath(
+                '/html/body/div/div/div/div[1]/div[2]/div/div/div/div/div/div[2]/div[2]/div/div[3]/div/div/div/div[1]/div/div/div/div/div[2]/div[4]/div/div/div[2]/div[4]').click()
+            time.sleep(8)
+
+        driver.close()
+        UploadImage.objects.all().delete()
+
+
+    return render(request,'front.html')
