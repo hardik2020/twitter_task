@@ -19,14 +19,16 @@ def front(request):
             print("here",i)
             UploadImage.objects.create(pic=images[i],name="i"+str(i+1))
 
-        driver = webdriver.Chrome(r"C:\Users\user\Desktop\twitter_task\twitter_task\Browsers\chromedriver.exe")
+        options = webdriver.ChromeOptions()
+        options.add_argument('headless')
+        driver = webdriver.Chrome(r"C:\Users\user\Desktop\twitter_task\twitter_task\Browsers\chromedriver.exe",chrome_options=options)
 
-        driver.maximize_window()
+        #driver.maximize_window()
 
         driver.get("https://mobile.twitter.com/login")
         time.sleep(5)
 
-        username = '9896502571'
+        username = '9354234689'
         password = 'Hardik@26'
         desc = '#FridayFitness'
 
