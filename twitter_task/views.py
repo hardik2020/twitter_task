@@ -74,3 +74,5 @@ def front(request):
 
 
     return render(request,'front.html')
+
+#.\newenv\Scripts\activate
