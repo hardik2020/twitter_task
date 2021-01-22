@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="019e07bc-d770-4e81-a51d-c910631df062" name="Default Changelist" comment="" />
+    <list default="true" id="019e07bc-d770-4e81-a51d-c910631df062" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/twitter_task/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/twitter_task/settings.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
