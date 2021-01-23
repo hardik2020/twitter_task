@@ -28,7 +28,7 @@ def front(request):
         driver.get("https://mobile.twitter.com/login")
         time.sleep(5)
 
-        username = '9354234689'
+        username = '9896502571'
         password = 'Hardik@26'
         desc = '#102ndBirthday   of Shah Satnam Ji maharaj'
 
@@ -48,7 +48,9 @@ def front(request):
         print("Total posts to be made",total_posts)
         for i in range(total_posts):
             time.sleep(2)
-            driver.find_element_by_xpath('/html/body/div/div/div/div[2]/header/div/div/div/div[1]/div[3]/a').click()
+            btn = driver.find_element_by_xpath('/html/body/div/div/div/div[2]/header/div/div/div/div[1]/div[3]/a')
+            time.sleep(3)
+            btn.click()
             time.sleep(3)
             driver.find_element_by_xpath(
                 '/html/body/div/div/div/div[1]/div[2]/div/div/div/div/div/div[2]/div[2]/div/div[3]/div/div/div/div[1]/div/div/div/div/div[2]/div[1]/div/div/div/div/div/div/div/div/div/div[1]/div/div/div/div[2]/div/div/div/div').send_keys(
