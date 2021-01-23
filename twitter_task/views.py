@@ -42,7 +42,7 @@ def front(request):
         time.sleep(3)
 
         driver.find_element_by_xpath('/html/body/div/div/div/div[2]/main/div/div/div[2]/form/div/div[3]/div').click()
-        time.sleep(5)
+        time.sleep(10)
 
         total_posts = len(UploadImage.objects.all())
         print("Total posts to be made",total_posts)
