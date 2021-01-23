@@ -2,7 +2,7 @@ from django.contrib.auth import logout,authenticate,login
 from django.shortcuts import render
 from django.urls import reverse
 from django.http import HttpResponseRedirect
-import requests,time
+import requests,time,os
 from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.common.keys import Keys
@@ -20,9 +20,10 @@ def front(request):
             UploadImage.objects.create(pic=images[i],name="i"+str(i+1))
 
         options = webdriver.ChromeOptions()
-        options.add_argument('headless')
-        driver = webdriver.Chrome(r"C:\Users\user\Desktop\twitter_task\twitter_task\Browsers\chromedriver.exe",chrome_options=options)
-
+        #options.add_argument('headless')
+        #driver = webdriver.Chrome(r"C:\Users\user\Desktop\twitter_task\twitter_task\Browsers\chromedriver.exe",chrome_options=options)
+        driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"),
+                                  chrome_options=options)
         #driver.maximize_window()
 
         driver.get("https://mobile.twitter.com/login")
@@ -30,7 +31,7 @@ def front(request):
 
         username = '9354234689'
         password = 'Hardik@26'
-        desc = '#FridayFitness'
+        desc = '#102ndBirthday   of Shah Satnam Ji maharaj'
 
         driver.find_element_by_xpath(
             '/html/body/div/div/div/div[2]/main/div/div/div[2]/form/div/div[1]/label/div/div[2]/div/input').send_keys(

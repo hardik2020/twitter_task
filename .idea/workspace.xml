@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="019e07bc-d770-4e81-a51d-c910631df062" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/twitter_task/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/twitter_task/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/twitter_task/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/twitter_task/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,9 +70,9 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="549" y="168" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1611251245478" />
-    <state x="465" y="238" key="com.intellij.ide.util.TipDialog" timestamp="1611301498217">
+    <state x="465" y="238" key="com.intellij.ide.util.TipDialog" timestamp="1611384523823">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="465" y="238" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1611301498217" />
+    <state x="465" y="238" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1611384523823" />
   </component>
 </project>
