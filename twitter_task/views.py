@@ -31,6 +31,7 @@ def front(request):
         username = '9896502571'
         password = 'Hardik@26'
         desc = '#102ndBirthday   of Shah Satnam Ji maharaj'
+        print("here")
 
         driver.find_element_by_xpath(
             '/html/body/div/div/div/div[2]/main/div/div/div[2]/form/div/div[1]/label/div/div[2]/div/input').send_keys(
@@ -46,6 +47,7 @@ def front(request):
 
         total_posts = len(UploadImage.objects.all())
         print("Total posts to be made",total_posts)
+        print(driver.page_source)
         for i in range(total_posts):
             time.sleep(2)
             btn = driver.find_element_by_xpath('/html/body/div/div/div/div[2]/header/div/div/div/div[1]/div[3]/a')
