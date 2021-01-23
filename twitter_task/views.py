@@ -6,6 +6,10 @@ import requests,time,os
 from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as ec
+
 from UploadApp.models import UploadImage
 
 def front(request):
@@ -50,7 +54,8 @@ def front(request):
         print(driver.page_source)
         for i in range(total_posts):
             time.sleep(2)
-            btn = driver.find_element_by_xpath('/html/body/div/div/div/div[2]/header/div/div/div/div[1]/div[3]/a')
+            btn = WebDriverWait(driver, 10).until(ec.visibility_of_element_located((By.XPATH, "/html/body/div/div/div/div[2]/header/div/div/div/div[1]/div[3]/a")))
+            #btn = driver.find_element_by_xpath('/html/body/div/div/div/div[2]/header/div/div/div/div[1]/div[3]/a')
             time.sleep(3)
             btn.click()
             time.sleep(3)
