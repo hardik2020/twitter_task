@@ -22,8 +22,7 @@ def front(request):
         options = webdriver.ChromeOptions()
         #options.add_argument('headless')
         #driver = webdriver.Chrome(r"C:\Users\user\Desktop\twitter_task\twitter_task\Browsers\chromedriver.exe",chrome_options=options)
-        driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"),
-                                  chrome_options=options)
+        driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"),chrome_options=options)
         #driver.maximize_window()
 
         driver.get("https://mobile.twitter.com/login")
